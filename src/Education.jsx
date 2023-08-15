@@ -1,16 +1,19 @@
 
-function ComponentTwo({formEducation}) {
+function ComponentTwo({formEducation, setDataEducation}) {
 
    function handleChange(event){
       formEducation(event)
    }
-   
+   function handleSubmit(event){
+      event.preventDefault();
+      setDataEducation();
+   }
    return (
        <div
        className='component'>
           
           <h1>Education</h1>
-         <form className='formPersonal'>
+         <form className='formPersonal' onSubmit={handleSubmit}>
             <div>
                <label htmlFor="school">School Name</label>
                <input type="text" id='school' name="schoolName" onChange={handleChange}/>

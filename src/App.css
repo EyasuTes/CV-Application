@@ -74,6 +74,10 @@ h2{
 .aboutCon{
     padding: 20px;
 }
+.educon, .expcon{
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .eduDates{
     display: flex;
 }

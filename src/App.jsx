@@ -1,5 +1,7 @@
 import ComponentOne from './PersonalDetails.jsx'
-import CV  from './CV.jsx'
+import CVpersonal  from './CV.jsx'
+import { CVeducation } from './CV.jsx'
+import { CVexperience } from './CV.jsx'
 import ComponentTwo from './Education.jsx'
 import ComponentThree from './Experience.jsx'
 import { useState } from 'react'
@@ -32,10 +34,18 @@ function App() {
     })
    
     const [cvData,setcvData]=useState({
-        set:'off'
+        setPersonal:'off',
+        setEducation:'off',
+        setExperience:'off'
     })
-    function setData(){
-        setcvData({...cvData,set:'on'})
+    function setDataPersonal(){
+        setcvData({...cvData,setPersonal:'on'})
+    }
+    function setDataEducation(){
+        setcvData({...cvData,setEducation:'on'})
+    }
+    function setDataExperience(){
+        setcvData({...cvData,setExperience:'on'})
     }
     function formPersonal(event){
         const name=event.target.name;
@@ -61,22 +71,30 @@ function App() {
             
             <div className='left-column'>
             <ComponentOne 
-            setData={setData}
+            setDataPersonal={setDataPersonal}
             formPersonal={formPersonal}
             />
             <ComponentTwo 
+            setDataEducation={setDataEducation}
             formEducation={formEducation}
             />
             <ComponentThree 
+            setDataExperience={setDataExperience}
             formExperience={formExperience}
             />
             
             </div>
             <div className='right-column'>
-              <CV 
+              <CVpersonal
               cvData={cvData}
               formData1={formData1}
+              />
+              <CVeducation 
+              cvData={cvData}
               formData2={formData2}
+              />
+              <CVexperience 
+              cvData={cvData}
               formData3={formData3}
               />
             </div>

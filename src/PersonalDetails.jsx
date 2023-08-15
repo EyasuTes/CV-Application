@@ -4,7 +4,7 @@ import CV from './CV';
 import React from 'react';
 import './App.css'
 
-function ComponentOne({ formPersonal,setData}) {
+function ComponentOne({ formPersonal,setDataPersonal}) {
    
    
    
@@ -16,7 +16,7 @@ function ComponentOne({ formPersonal,setData}) {
    function handleSubmit(event){
       event.preventDefault()
       // resetForm()
-      setData()
+      setDataPersonal()
    }
    return (
       <div className='component'>

@@ -1,8 +1,12 @@
 //import './App.css'
-function ComponentThree({formExperience}) {
+function ComponentThree({formExperience, setDataExperience}) {
 
    function handleChange(event){
       formExperience(event)
+   }
+   function handleSubmit(event){
+      event.preventDefault();
+      setDataExperience();
    }
   
     return (
@@ -10,7 +14,7 @@ function ComponentThree({formExperience}) {
        className='component'>
           
          <h1>Experience</h1>
-         <form className='formPersonal'>
+         <form className='formPersonal' onSubmit={handleSubmit}>
             <div>
                <label htmlFor="company">Company Name</label>
                <input type="text" id='company' name="company" onChange={handleChange}/>
