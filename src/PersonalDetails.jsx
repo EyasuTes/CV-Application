@@ -4,7 +4,7 @@ import CV from './CV';
 import React from 'react';
 import './App.css'
 
-function ComponentOne({ formPersonal,setDataPersonal}) {
+function ComponentOne({ formPersonal}) {
    
    
    
@@ -16,11 +16,11 @@ function ComponentOne({ formPersonal,setDataPersonal}) {
    function handleSubmit(event){
       event.preventDefault()
       // resetForm()
-      setDataPersonal()
+      
    }
    return (
       <div className='component'>
-        
+         
          <h1>Personal Details</h1>
          <form className='formPersonal' onSubmit={handleSubmit} >
          <div>
@@ -44,8 +44,8 @@ function ComponentOne({ formPersonal,setDataPersonal}) {
             <textarea id="description" name="description" rows="4" cols="50" onChange={handleChange}></textarea>
          </div>
          <div id='buttons'>
-            <button type='submit' className='submit'>Submit</button>
-            <button className='edit'>Edit</button>
+            <button type='submit' className='submit'>Add</button>
+            
          </div>
          
          </form>

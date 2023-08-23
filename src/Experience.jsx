@@ -1,18 +1,32 @@
-//import './App.css'
-function ComponentThree({formExperience, setDataExperience}) {
+import './App.css'
+function ComponentThree({formExperience,  setarr1, arrformData3, expdelete}) {
 
    function handleChange(event){
       formExperience(event)
    }
    function handleSubmit(event){
       event.preventDefault();
-      setDataExperience();
+      
+      setarr1()
+   }
+   function handleDelete(id){
+      expdelete(id)
    }
   
     return (
-      <div
-       className='component'>
-          
+      <div className='component'>
+          {arrformData3.map(current => (
+          <div  key={current.id}>
+            <div className='edusch'>
+               <div className='schName'>{current.object.company}</div>
+               <div className='buttons'>
+                  {console.log(arrformData3)}
+                  <button>Edit</button>
+                  <button onClick={()=>handleDelete(current.id)}>Delete</button>
+               </div>
+            </div>
+          </div>
+         ))}
          <h1>Experience</h1>
          <form className='formPersonal' onSubmit={handleSubmit}>
             <div>
@@ -40,8 +54,8 @@ function ComponentThree({formExperience, setDataExperience}) {
                <textarea id="description" name="description" rows="4" cols="50" onChange={handleChange}></textarea>
             </div>
             <div id='buttons'>
-               <button className='submit'>Submit</button>
-               <button className='edit'>Edit</button>
+               <button type='submit' className='submit'>Add</button>
+               
             </div>
          </form>
       </div>
